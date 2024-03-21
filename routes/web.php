@@ -19,19 +19,15 @@ Route::get('/', function () {
    // return "bienvenidos";
 });
 
-// Route::get('producto', [ProductoController::class, 'index']); 
-        
-// Route::get('producto/crear', [ProductoController::class, 'crear']); 
-
-// Route::get('producto/{x}', [ProductoController::class, 'show']); 
-
-Route::controller(ProductoController::class)->group(function () {     
+  Route::controller(ProductoController::class)->group(function () {     
   //RUTA PARA EL METODO INDEX     
-  Route::get('producto', "index");      
+  Route::get('producto', "index")->name('producto.index');      
   //RUTA PARA EL METODO CREATE     
-  Route::get('producto/create', 'create');      
+  Route::get('producto/create', 'create')->name('producto.create');   
   //RUTA PARA EL METODO SHOW    
-  Route::get('producto/{var}', 'show'); 
+  Route::get('producto/{var}', 'show')->name('producto.show'); 
+  Route::post('producto', 'store')->name('producto.store'); 
+   
  });
 
 
